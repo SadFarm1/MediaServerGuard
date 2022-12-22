@@ -1,0 +1,17 @@
+FROM ubuntu
+
+COPY ./SA.json /SA.json
+COPY ./.env /.env
+
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install python3 python3-pip git -y
+
+RUN git clone http://git.tea/SadFarm1/MediaServerGuard.git
+RUN pip3 install -r /MediaServerGuard/linuxrequirements.txt
+
+RUN mv /SA.json /MediaServerGuard
+RUN mv /.env /MediaServerGuard
+
+WORKDIR /MediaServerGuard
+CMD ["python3", "app.py"]
