@@ -79,31 +79,6 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 
-"""
-@client.command()
-@commands.has_permissions(kick_members=True)
-async def manualreport(ctx, user_name, user_ID,  *report):
-
-    full_report = ''
-    for word in report:
-        full_report = full_report + word + ' '
-
-    if full_report == '':
-        await ctx.send('Please enter a reason for the report!')
-    
-    else:
-        SAClient = gspread.authorize(SACreds)
-        danger_sheet = SAClient.open('User Watchlist').worksheet('MainWatchlist')
-
-        danger_sheet.append_row([str(user_name), str(user_ID), str(full_report), ctx.message.guild.name])
-
-        admin_channel = discord.utils.get(client.get_all_channels(), guild__name='Media Server Admins', name='users-watchlist')
-        embed = discord.Embed(title="Guard Alert", description=f"For {str(user_name)}", color=0xff0000)
-        embed.add_field(name=f"Report manually submitted by {ctx.message.guild.name}", value=str(full_report), inline=False)
-        await admin_channel.send(embed=embed)
-
-        await ctx.send('Report sent!')
-"""
 
 @client.command()
 @commands.has_permissions(kick_members=True)
