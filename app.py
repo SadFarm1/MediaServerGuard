@@ -94,7 +94,7 @@ async def manual_report(ctx):
     user_name_msg = await ctx.send(embed=user_name_embed)
 
     try:
-        user_name = await client.wait_for('message', check=response_checker.check, timeout=30)
+        user_name = await client.wait_for('message', check=response_checker.check, timeout=300)
 
         if '#' not in user_name.content:
             await ctx.send('Invalid username! Please try running this command again')
@@ -111,7 +111,7 @@ async def manual_report(ctx):
     user_id_msg = await ctx.send(embed=user_id_embed)
 
     try:
-        user_id = await client.wait_for('message', check=response_checker.check, timeout=30)
+        user_id = await client.wait_for('message', check=response_checker.check, timeout=300)
     except asyncio.TimeoutError:
         await ctx.send(constants.REQUEST_TIME0UT_MESSAGE)
         return
@@ -124,7 +124,7 @@ async def manual_report(ctx):
     user_report_msg = await ctx.send(embed=user_report_embed)
 
     try:
-        user_report = await client.wait_for('message', check=response_checker.check, timeout=30)
+        user_report = await client.wait_for('message', check=response_checker.check, timeout=300)
     except asyncio.TimeoutError:
         await ctx.send(constants.REQUEST_TIME0UT_MESSAGE)
         return
@@ -164,7 +164,7 @@ async def report(ctx):
 
     user_tag_msg = await ctx.send(embed=user_tag_embed)
     try:
-        user_tag = await client.wait_for('message', check=response_checker.check, timeout=30)
+        user_tag = await client.wait_for('message', check=response_checker.check, timeout=300)
 
         if '@' not in user_tag.content:
             await ctx.send('Invalid tag! Please try running this command again')
@@ -185,7 +185,7 @@ async def report(ctx):
     user_report_msg = await ctx.send(embed=user_report_embed)
 
     try:
-        user_report = await client.wait_for('message', check=response_checker.check, timeout=30)
+        user_report = await client.wait_for('message', check=response_checker.check, timeout=300)
     except asyncio.TimeoutError:
         await ctx.send(constants.REQUEST_TIME0UT_MESSAGE)
         return
