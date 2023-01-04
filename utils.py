@@ -1,5 +1,4 @@
 import discord
-from discord.types.channel import Channel
 
 import constants
 
