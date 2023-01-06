@@ -1,5 +1,5 @@
 import discord
-#from discord.types.channel import Channel
+from discord import TextChannel
 
 import constants
 
@@ -22,9 +22,9 @@ def ping_calculation(client) -> str:
 
 
 async def alert_admins(client, user_name: str, user_id: str, details: str, guild_name: str):
-    admin_channel = await discord.utils.get(client.get_all_channels(),
-                                            guild__name=constants.ADMIN_GUILD_NAME,
-                                            name=constants.ADMIN_GUILD_ALERT_CHANNEL_NAME)
+    admin_channel: TextChannel = discord.utils.get(client.get_all_channels(),
+                                                   guild__name=constants.ADMIN_GUILD_NAME,
+                                                   name=constants.ADMIN_GUILD_ALERT_CHANNEL_NAME)
     embed = discord.Embed(title="Guard Alert",
                           description=f"For {user_name} ``{user_id}``",
                           color=0xff0000)
